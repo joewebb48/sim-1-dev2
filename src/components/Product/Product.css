@@ -1,0 +1,28 @@
+.product_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #d34735;
+  border: 2px solid black;
+  width: 50%;
+  margin: 2%;
+}
+
+.col_name_price_buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_delete_button_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  height: 20px;
+  /* margin: 20%; */
+  /* padding: 20%; */
+  background-color: #3ad886;
+}

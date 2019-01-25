@@ -1,0 +1,13 @@
+.header_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+  background-color: #ab2a19;
+}
+
+h4 {
+  height: 30px;
+}
+h3 {
+  height: 40px;
+}

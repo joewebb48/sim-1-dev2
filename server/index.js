@@ -18,8 +18,9 @@ app.use(bodyParser.json());
 
 app.get('/api/inventory', ctrl.getInventory);
 app.post('/api/product', ctrl.addProduct);
+app.delete(`/api/product/:id`, ctrl.deleteProduct);
 
-const PORT = process.env.SERVER_PORT;
-app.listen(PORT, () => {
-  console.log(`knock knock... whoses there? Port ${PORT}`);
+const SERVER_PORT = process.env.SERVER_PORT;
+app.listen(SERVER_PORT, () => {
+  console.log(`knock knock... whoses there? Port ${SERVER_PORT}`);
 });

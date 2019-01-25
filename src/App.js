@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DashBoard from './components/Dashboard/Dashboard';
 import Form from './components/Form/Form';
 import Header from './components/Header/Header';
@@ -47,7 +49,10 @@ class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <DashBoard inventory={this.state.inventory} />
+        <DashBoard
+          mount={this.componentDidMount}
+          inventory={this.state.inventory}
+        />
         <Form mount={this.componentDidMount} />
       </div>
     );

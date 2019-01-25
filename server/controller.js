@@ -43,7 +43,7 @@ module.exports = {
   editProduct: (req, res) => {
     console.log('edit hit:');
     const dbInstance = req.app.get('db');
-    const { params } = req;
+    const { params } = req.body;
     console.log('params edit:', params);
 
     dbInstance

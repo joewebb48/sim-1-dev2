@@ -57,6 +57,15 @@ export default class Form extends Component {
     this.handleCancel();
   }
 
+  editProduct() {
+    const { imgurl, name, price, selectedID } = this.state;
+    axios
+      .put(`/api/product/${selectedID}`, { imgurl, name, price })
+      .then(res => {
+        this.props.mount();
+      });
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.selectedProduct === prevProps) {
       console.log(774444, this.props.selectedProduct);
@@ -79,6 +88,7 @@ export default class Form extends Component {
     console.log(' Form state:', this.state);
     return (
       <div className='main_form_wrapper'>
+        {/* {this.props.mount()} */}
         <h1>Form</h1>
         <div>
           {/* {console.log('props mount', this.props.mount)} */}

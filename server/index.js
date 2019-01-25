@@ -3,6 +3,8 @@ const massive = require('massive');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
+const ctrl = require('./controller');
+
 const app = express();
 massive(process.env.CONNECTION_STRING)
   .then(dbResponse => {
@@ -14,7 +16,10 @@ massive(process.env.CONNECTION_STRING)
 
 app.use(bodyParser.json());
 
-// cont port = 5555
-app.listen(5555, () => {
-  console.log(`knock knock... whoses there? Port 5555`);
+app.get('/api/inventory', ctrl.getInventory);
+app.post('/api/product', ctrl.addProduct);
+
+const PORT = process.env.SERVER_PORT;
+app.listen(PORT, () => {
+  console.log(`knock knock... whoses there? Port ${PORT}`);
 });

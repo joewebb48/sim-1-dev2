@@ -9,17 +9,26 @@ export default class Dashboard extends Component {
     this.state = {
       none: ''
     };
+    this.deleteProduct = this.deleteProduct.bind(this);
   }
   deleteProduct(id) {
-    axios.delete(`/api/inventory/${id}`).then(res => {
-      console.log('hi');
+    console.log(666, 'hit');
+    axios.delete(`/api/product/${id}`).then(res => {
+      this.props.mount();
     });
   }
 
   render(props) {
-    console.log('props in dashb:', this.props);
+    console.log('props in dashboard:', this.props);
     let newProduct = this.props.inventory.map((val, i) => {
-      return <Product key={i} productInfo={val} />;
+      return (
+        <Product
+          key={i}
+          productInfo={val}
+          delete={this.deleteProduct}
+          edit={this.props.handleEdit}
+        />
+      );
     });
     return (
       <div>

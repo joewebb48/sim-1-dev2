@@ -43,7 +43,9 @@ export default class Form extends Component {
       imgurl: '',
       name: '',
       price: '',
-      input: ''
+      input: '',
+      selectedID: null,
+      editting: false
     });
   }
   handleAdd() {
@@ -55,8 +57,26 @@ export default class Form extends Component {
     this.handleCancel();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedProduct === prevProps) {
+      console.log(774444, this.props.selectedProduct);
+      console.log(77884444, prevProps);
+      console.log('nice');
+    } else {
+      console.log('so not equal');
+      console.log(77, this.props.selectedProduct);
+      console.log(7788, prevProps);
+      // this.setState({
+      //   imgurl: '',
+      //   name: '',
+      //   price: ''
+      // });
+    }
+  }
+
   render() {
-    console.log('state in Form:', this.state);
+    console.log('Form props:', this.props);
+    console.log(' Form state:', this.state);
     return (
       <div className='main_form_wrapper'>
         <h1>Form</h1>

@@ -30,9 +30,11 @@ class App extends Component {
         //   price: '5.99',
         //   img_url: 'sock_links here'
         // }
-      ]
+      ],
+      selectedProduct: []
     };
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -44,16 +46,27 @@ class App extends Component {
       });
     });
   }
+
+  handleEdit(product) {
+    console.log('handleEdit:', product);
+    this.setState({
+      selectedProduct: product
+    });
+  }
   render() {
     console.log('app-state:', this.state.inventory);
     return (
       <div className='App'>
         <Header />
         <DashBoard
+          edit={this.handleEdit}
           mount={this.componentDidMount}
           inventory={this.state.inventory}
         />
-        <Form mount={this.componentDidMount} />
+        <Form
+          mount={this.componentDidMount}
+          selectedProduct={this.state.selectedProduct}
+        />
       </div>
     );
   }

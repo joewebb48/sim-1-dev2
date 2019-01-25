@@ -2,7 +2,11 @@ import React from 'react';
 import './Product.css';
 
 export default function Product(props) {
-  console.log('product:', props);
+  console.log('product props:', props);
+  // console.log('finding product id', props.productInfo.product_id);
+
+  // const { id, img, name, price } = props.productInfo;
+  // console.log(11, props.product_id);
   return (
     <div className='product_box'>
       {/* <h3>Product</h3> */}
@@ -19,10 +23,22 @@ export default function Product(props) {
         </div>
         <div className='edit_delete_button_row'>
           <div className='delete_wrapper'>
-            <button>Delete</button>
+            <button
+              onClick={() => {
+                props.delete(props.productInfo.product_id);
+              }}
+            >
+              Delete
+            </button>
           </div>
           <div className='edit_wrapper'>
-            <button>Edit</button>
+            <button
+              onClick={() => {
+                this.props.handleEdit(props.productInfo.product_id);
+              }}
+            >
+              Edit
+            </button>
           </div>
         </div>
       </div>

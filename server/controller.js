@@ -39,5 +39,19 @@ module.exports = {
         res.state(500).send({ errorMessage: 'broken delete stuff' });
         console.log(err);
       });
+  },
+  editProduct: (req, res) => {
+    console.log('edit hit:');
+    const dbInstance = req.app.get('db');
+    const { params } = req;
+    console.log('params edit:', params);
+
+    dbInstance
+      .update_product([params.id])
+      .then(() => res.sendStataus(200))
+      .catch(err => {
+        res.status(500).send({ errorMessage: 'broke' });
+        console.log(err);
+      });
   }
 };
